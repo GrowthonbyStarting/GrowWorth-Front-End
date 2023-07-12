@@ -1,0 +1,89 @@
+{
+	"extends": "./.svelte-kit/tsconfig.json",
+	"compilerOptions": {
+		"allowJs": true,
+		"checkJs": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"resolveJsonModule": true,
+		"skipLibCheck": true,
+		"sourceMap": true,
+		"strict": true,
+		"baseUrl": ".",
+		"paths": {
+			"$lib": [
+				"src/lib"
+			],
+			"$lib/*": [
+				"src/lib/*"
+			],
+			"$stores": [
+				"src/stores/index.ts"
+			],
+			"$stores/*": [
+				"src/stores/*"
+			],
+			"$core": [
+				"src/lib/core/index.ts"
+			],
+			"$core/*": [
+				"src/lib/core/*"
+			],
+			"$utils": [
+				"src/lib/utils/index.ts"
+			],
+			"$utils/*": [
+				"src/lib/utils/*"
+			],
+			"$shared": [
+				"src/lib/shared/index.ts"
+			],
+			"$shared/*": [
+				"src/lib/shared/*"
+			],
+			"$components": [
+				"src/components/index.ts"
+			],
+			"$components/*": [
+				"src/components/*"
+			],
+			"$ui": [
+				"src/lib/shared/ui/index.ts"
+			],
+			"$ui/*": [
+				"src/lib/shared/ui/*"
+			],
+			"$models": [
+				"src/lib/models/index.ts"
+			],
+			"$models/*": [
+				"src/lib/models/*"
+			],
+			"$data": [
+				"src/lib/data/index.ts"
+			],
+			"$data/*": [
+				"src/lib/data/*"
+			],
+			"$environment/*": [
+				"src/environments/*"
+			],
+			"$images/*": [
+				"src/lib/images/*"
+			],
+			"$api/*": [
+				"src/lib/api/*"
+			],
+			"$dropdown": [
+				"src/lib/components/helpers/dropdowns/index.ts"
+			],
+			"$forms": [
+				"src/lib/components/helpers/forms/index.ts"
+			]
+		}
+	}
+	// Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias
+	//
+	// If you want to overwrite includes/excludes, make sure to copy over the relevant includes/excludes
+	// from the referenced tsconfig.json - TypeScript does not merge them in
+}
