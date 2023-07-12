@@ -28,8 +28,12 @@
 			<div
 				class="grid w-full grid-cols-2 border-gray-200 rounded-t-md dark:bg-gray-700 dark:border-gray-600"
 			>
-				<Button class="flex justify-center items-center mx-10">예</Button>
-				<Button class="flex justify-center items-center mx-10">아니오</Button>
+				<a href="/submit" class="mx-10">
+					<Button class="w-full flex justify-center items-center">예</Button>
+				</a>
+				<a href="/submit" class="mx-10">
+					<Button class="w-full flex justify-center items-center">아니오</Button>
+				</a>
 			</div>
 		</div>
 	</div>
