@@ -2,9 +2,9 @@
 	import { Navbar, NavBrand, NavLi, NavUl, NavHamburger } from 'flowbite-svelte';
 </script>
 
-<Navbar let:hidden let:toggle>
+<Navbar let:hidden let:toggle navDivClass="mx-auto flex flex-wrap justify-start items-center mt-3">
 	<NavBrand href="/">
-		<span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+		<span class="self-center whitespace-nowrap text-[35px] font-semibold dark:text-white">
 			특허의 신
 		</span></NavBrand
 	>
