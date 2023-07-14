@@ -9,13 +9,11 @@ export const POST: RequestHandler = async (event) => {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
-			Authorization: event.cookies.get('access_token')
-			// 'Content-Type': 'application/x-www-form-urlencoded',
 		},
 		body: JSON.stringify(body)
 	};
 	console.log(`${PUBLIC_URL}/api/${url}`, info);
-	const res = await fetch(`${PUBLIC_URL}api/${url}`, info)
+	const res = await fetch(`${PUBLIC_URL}/api/${url}`, info)
 		.then((response) => {
 			return response;
 		})

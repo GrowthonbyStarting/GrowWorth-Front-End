@@ -1,35 +1,20 @@
 <script>
 	import { Card } from 'flowbite-svelte';
+	import box_in from '$lib/images/box_in.png';
+	import box_out from '$lib/images/box_out.png';
+	export let data;
 </script>
 
-<div class="grid grid-cols-3">
-	<Card img="https://flowbite-svelte.com/images/image-1.webp">
-		<a href="/patent">
-			<h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-				특허등록 가능성검토
-			</h5>
-			<p class="mb-3 font-normal text-gray-700 dark:text-gray-400 leading-tight">
-				Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse
-				chronological order.
-			</p>
-		</a>
-	</Card>
-	<Card img="https://flowbite-svelte.com/images/image-1.webp">
-		<h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-			국내 특허등록 신청
-		</h5>
-		<p class="mb-3 font-normal text-gray-700 dark:text-gray-400 leading-tight">
-			Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse
-			chronological order.
-		</p>
-	</Card>
-	<Card img="https://flowbite-svelte.com/images/image-1.webp">
-		<h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-			해외 특허등록 신청
-		</h5>
-		<p class="mb-3 font-normal text-gray-700 dark:text-gray-400 leading-tight">
-			Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse
-			chronological order.
-		</p>
-	</Card>
+<div class="grid lg:grid-cols-3">
+	{#each data.questionnaire as questionnaire}
+		<div style="background-image: url({box_in});" class="h-[384px] w-[357px]">
+			<a href={`/patent/${questionnaire.id}`} class="h-full w-full">
+				<h5
+					class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white h-full flex justify-center items-center"
+				>
+					{questionnaire.title}
+				</h5>
+			</a>
+		</div>
+	{/each}
 </div>
