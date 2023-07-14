@@ -12,7 +12,6 @@ export const POST: RequestHandler = async (event) => {
 		},
 		body: JSON.stringify(body)
 	};
-	console.log(`${PUBLIC_URL}/api/${url}`, info);
 	const res = await fetch(`${PUBLIC_URL}/api/${url}`, info)
 		.then((response) => {
 			return response;

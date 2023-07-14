@@ -7,12 +7,13 @@
 	import choice_chemi from '$lib/images/choice_chemi.png';
 	import choice_elec from '$lib/images/choice_elec.png';
 	import choice_etc from '$lib/images/choice_etc.png';
+	import { goto } from '$app/navigation';
 
 	export let data;
 	let questionnaireId = data.id;
 	let answers = [];
 	let choices = [];
-	let step = 1;
+	let step = 0;
 	let count = -1;
 	let inputValue = '';
 	let question = data.question[count];
@@ -21,6 +22,7 @@
 	let phone = '';
 	let category = '';
 	let file = null;
+	let fileRes;
 	$: question = data.question[count];
 	onMount(async () => {
 		addQuestion();
@@ -73,25 +75,22 @@
 		]
 	};
 	const addFile = async () => {
-		const fileRes = await fetch('/api/file', {
+		const formData = new FormData();
+		formData.append('file', file[0]);
+
+		fileRes = await fetch('/api/file', {
 			method: 'POST',
-			body: JSON.stringify({
-				file: [file]
-			})
-		}).then(async (data) => await data.json());
-		console.log(fileRes);
+			body: formData
+		})
+			.then(async (data) => await data.json())
+			.catch(console.log);
 		step = 3;
 	};
 	const submit = async () => {
 		const body = {
 			category,
 			email,
-			files: [
-				{
-					createdFile: '',
-					originalFile: ''
-				}
-			],
+			files: fileRes,
 			name,
 			phoneNumber: phone,
 			questionnaireId,
@@ -103,8 +102,8 @@
 				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify(body)
-		}).then(async (data) => await data.json());
-		console.log(res);
+		}).catch(console.log);
+		goto(`/submit/${name}`);
 	};
 </script>
 
@@ -209,7 +208,7 @@
 
 		<div class="relative p-4 code-syntax dark:border-gray-600">
 			<div class="rounded-t-md">
-				<div class="mb-5"><input type="file" bind:value={file} /></div>
+				<div class="mb-5"><input type="file" bind:files={file} /></div>
 				<Button on:click={async () => await addFile()}>추가</Button>
 			</div>
 		</div>
