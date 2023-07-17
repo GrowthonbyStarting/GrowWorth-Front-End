@@ -8,7 +8,8 @@
 	import choice_elec from '$lib/images/choice_elec.png';
 	import choice_etc from '$lib/images/choice_etc.png';
 	import { goto } from '$app/navigation';
-
+	import { setContext } from 'svelte';
+	import { writable } from 'svelte/store';
 	export let data;
 	let questionnaireId = data.id;
 	let answers = [];
@@ -105,7 +106,10 @@
 			},
 			body: JSON.stringify(body)
 		}).catch(console.log);
-		goto(`/submit/${name}`);
+		try {
+			setContext('u', body);
+		} catch (e) {}
+		goto(`/submit/${17}`);
 	};
 </script>
 

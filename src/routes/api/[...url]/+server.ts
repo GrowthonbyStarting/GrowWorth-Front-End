@@ -8,7 +8,7 @@ export const POST: RequestHandler = async (event) => {
 	const info: RequestInit = {
 		method: 'POST',
 		headers: {
-			'Content-Type': 'application/json',
+			'Content-Type': 'application/json'
 		},
 		body: JSON.stringify(body)
 	};
@@ -32,6 +32,7 @@ export const GET: RequestHandler = async (event) => {
 			// 'Content-Type': 'application/x-www-form-urlencoded',
 		}
 	};
+	console.log(url);
 	const res = await fetch(`${PUBLIC_URL}/api/${url}`, info)
 		.then((response) => {
 			return response;
