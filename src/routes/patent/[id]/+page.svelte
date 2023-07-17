@@ -75,15 +75,17 @@
 		]
 	};
 	const addFile = async () => {
-		const formData = new FormData();
-		formData.append('file', file[0]);
+		try {
+			const formData = new FormData();
+			formData.append('file', file[0]);
 
-		fileRes = await fetch('/api/file', {
-			method: 'POST',
-			body: formData
-		})
-			.then(async (data) => await data.json())
-			.catch(console.log);
+			fileRes = await fetch('/api/file', {
+				method: 'POST',
+				body: formData
+			})
+				.then(async (data) => await data.json())
+				.catch(console.log);
+		} catch (e) {}
 		step = 3;
 	};
 	const submit = async () => {
@@ -143,7 +145,7 @@
 							<label class="flex justify-center mb-5"
 								><textarea
 									bind:value={inputValue}
-									class="w-[300px] h-[300px] leading-5.6 ease-soft block appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-gray-300 focus:outline-none"
+									class="w-[700px] h-[300px] leading-5.6 ease-soft block appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-gray-300 focus:outline-none"
 								/>
 							</label>
 							<Button
@@ -184,11 +186,11 @@
 		<div class="relative p-4 code-syntax dark:border-gray-600">
 			<div class="grid w-full grid-cols-3 rounded-t-md">
 				{#each typeQuestion.choices as choice}
-					<div class="mx-10 flex justify-center items-center mb-5">
+					<div class="mx-10 flex justify-center items-center my-10">
 						<button
 							on:click={async () =>
 								await addQuestionType(typeQuestion.content, choice.value, 'SELECT')}
-							><img src={choice.img} alt="" width="100" />{choice.value}</button
+							><img src={choice.img} alt="" width="100" class="mb-3" />{choice.value}</button
 						>
 					</div>
 				{/each}
@@ -202,13 +204,17 @@
 				class="w-full mx-auto bg-gradient-to-r bg-white dark:bg-gray-900 p-2 sm:p-6 space-y-4 text-[30px]"
 			>
 				마지막으로 파일을 첨부한 후, ‘완료’ 버튼을 눌러주세요. (PDF 파일만 가능합니다.)
-				<small>파일이 없으신 분들은 바로 ‘완료’ 버튼을 누르시면 다음 화면으로 넘어갑니다.</small>
+				<div>
+					<small>파일이 없으신 분들은 바로 ‘완료’ 버튼을 누르시면 다음 화면으로 넘어갑니다.</small>
+				</div>
 			</div>
 		</div>
 
 		<div class="relative p-4 code-syntax dark:border-gray-600">
 			<div class="rounded-t-md">
-				<div class="mb-5"><input type="file" bind:files={file} /></div>
+				<div class="my-5">
+					<input type="file" bind:files={file} class="border border-2 mb-5" />
+				</div>
 				<Button on:click={async () => await addFile()}>추가</Button>
 			</div>
 		</div>
@@ -274,7 +280,7 @@
 							</div>
 						</label>
 					</div>
-					<div class="flex justify-center items-center mb-3">
+					<div class="flex justify-center items-center my-10">
 						<Button class="flex justify-center items-center" on:click={async () => await submit()}
 							>입력</Button
 						>

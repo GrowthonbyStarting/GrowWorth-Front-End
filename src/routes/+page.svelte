@@ -7,7 +7,7 @@
 
 <div class="grid lg:grid-cols-3">
 	{#each data.questionnaire as questionnaire}
-		<div style="background-image: url({box_in});" class="h-[384px] w-[357px]">
+		<div style="background-image: url({box_in});" class="h-[384px] w-[357px] mx-auto">
 			<a href={`/patent/${questionnaire.id}`} class="h-full w-full">
 				<h5
 					class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white h-full flex justify-center items-center"

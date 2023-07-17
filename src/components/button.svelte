@@ -215,7 +215,7 @@
 		font-size: 16px;
 		border: none;
 		cursor: pointer;
-		width: 80px;
+		width: 172px;
 	}
 
 	.container .btn:hover {

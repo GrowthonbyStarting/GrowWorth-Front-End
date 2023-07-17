@@ -35,18 +35,11 @@
 		<div class="w-full flex justify-end">
 			<img
 				class=" rounded-t-lg"
-				src="https://cdn.imweb.me/thumbnail/20190225/5c7341227d68b.png"
+				src="https://cdn.imweb.me/upload/S201902155c665673286e8/5c7389ad88942.png"
 				alt="product 1"
 			/>
 		</div>
 		<div class="w-full mx-4">
-			<h5 class="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">Standard plan</h5>
-			<div class="flex items-baseline text-gray-900 dark:text-white">
-				<span class="text-3xl font-semibold">$</span>
-				<span class="text-5xl font-extrabold tracking-tight">49</span>
-				<span class="ml-1 text-xl font-normal text-gray-500 dark:text-gray-400">/month</span>
-			</div>
-			<!-- List -->
 			<ul class="my-7 space-y-4">
 				{#each exp as ex}
 					<li class="flex space-x-2">
