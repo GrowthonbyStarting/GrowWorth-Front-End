@@ -3,8 +3,6 @@
 	import { page } from '$app/stores';
 	import { getContext } from 'svelte';
 	export let data;
-	let name = data.user.name;
-	let { user, item } = data;
 	const exp = [
 		'특허법인 ECM 대표변리사 (2016~)',
 		'ECM특허법률사무소 대표변리사(2016~2020)',
