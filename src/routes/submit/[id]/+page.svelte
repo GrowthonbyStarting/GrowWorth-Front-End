@@ -37,7 +37,7 @@
 <div>
 	<div class="text-center">
 		<Heading tag="h4" class="mb-4" customSize="text-xl font-extrabold  md:text-2xl lg:text-3xl"
-			>{name}님에게 김시우 변리사님이 매칭되었습니다</Heading
+			>{u?.name ?? ''}님에게 김시우 변리사님이 매칭되었습니다</Heading
 		>
 	</div>
 
