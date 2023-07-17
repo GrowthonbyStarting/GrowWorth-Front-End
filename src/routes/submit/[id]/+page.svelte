@@ -22,23 +22,12 @@
 		'NIPA((national IT industry promotion agency) 평가위원 (2016~)',
 		'CLO(chief logistics officer) 자문 변리사 (2016~)'
 	];
-	let uu = getContext('u');
-	let u = $uu;
 </script>
 
-{#if u}
-	<div class="w-[800px] mx-auto mb-10 border border-[10px] p-3">
-		<div class="mb-2">이름 : {u.name}</div>
-		<div class="mb-2">상담 분야 : {u.category}</div>
-		{#each u.responses as res}
-			<div class="mb-2">{res.question} : {res.answer}</div>
-		{/each}
-	</div>
-{/if}
 <div>
 	<div class="text-center">
 		<Heading tag="h4" class="mb-4" customSize="text-xl font-extrabold  md:text-2xl lg:text-3xl"
-			>{u?.name ?? ''}님에게 김시우 변리사님이 매칭되었습니다</Heading
+			>{data?.name ?? ''}님에게 김시우 변리사님이 매칭되었습니다</Heading
 		>
 	</div>
 
