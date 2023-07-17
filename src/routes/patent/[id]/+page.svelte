@@ -111,7 +111,7 @@
 			user.set(body);
 			setContext('u', user);
 		} catch (e) {}
-		goto(`/submit/${17}`);
+		goto(`/submit/${name}`);
 	};
 </script>
 
