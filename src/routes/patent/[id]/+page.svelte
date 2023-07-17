@@ -107,7 +107,9 @@
 			body: JSON.stringify(body)
 		}).catch(console.log);
 		try {
-			setContext('u', body);
+			const user = writable();
+			user.set(body);
+			setContext('u', user);
 		} catch (e) {}
 		goto(`/submit/${17}`);
 	};

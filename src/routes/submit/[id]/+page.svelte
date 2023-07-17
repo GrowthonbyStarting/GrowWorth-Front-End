@@ -22,7 +22,8 @@
 		'NIPA((national IT industry promotion agency) 평가위원 (2016~)',
 		'CLO(chief logistics officer) 자문 변리사 (2016~)'
 	];
-	let u = getContext('u');
+	let uu = getContext('u');
+	let u = $uu;
 </script>
 
 {#if u}
